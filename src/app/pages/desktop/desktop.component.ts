@@ -13,6 +13,6 @@ import { DockComponent } from '../../components/dock/dock.component';
 export class DesktopComponent {
   desktopIcons = [
     { name: 'Safari', icon: '/assets/icons/safari.svg' },
-    { name: 'Finder', icon: '/assets/icons/finder.svg' },
+    { name: 'Finder', icon: '/assets/icons/finder.png' },
   ];
 }

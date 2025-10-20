@@ -3,11 +3,16 @@
   width: 100vw;
   background: #000;
   color: #fff;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 120px; 
 }
 
-.logo { margin-bottom: 24px; }
+.boot-screen > * { margin: 0; }
+.logo { display: block; margin-bottom: 0; }
+.progress { margin: 0; }
 
 .progress {
   width: min(300px, 60vw);

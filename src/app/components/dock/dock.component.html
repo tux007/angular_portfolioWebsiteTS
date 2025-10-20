@@ -1,6 +1,6 @@
-<div class="dock">
+<div class="dock" [style.--mouseX.px]="mouseX">
   <div class="items">
-    <button class="item" *ngFor="let app of apps" (click)="open(app.name)">
+    <button class="item" *ngFor="let app of apps; let i = index" (click)="open(app.name)" [style.--i]="i">
       <img class="icon" [src]="app.icon" [alt]="app.name" width="44" height="44" />
       <span class="label">{{ app.name }}</span>
     </button>

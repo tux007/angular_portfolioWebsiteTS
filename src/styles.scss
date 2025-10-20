@@ -1,4 +1,11 @@
 /* Global base styles */
 html, body { height: 100%; }
-body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Arial, sans-serif; }
+body {
+	margin: 0;
+	font-family:
+		'SF Pro Text', 'SF Pro Display',
+		-apple-system, BlinkMacSystemFont,
+		'Segoe UI', Roboto, Arial, sans-serif;
+	color: #0a0a0a;
+}
 app-root, app-desktop, app-login, app-boot { display: block; height: 100%; }
