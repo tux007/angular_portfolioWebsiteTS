@@ -1,0 +1,25 @@
+.boot-screen {
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+
+.logo { margin-bottom: 24px; }
+
+.progress {
+  width: min(300px, 60vw);
+  height: 6px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.15);
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: #fff;
+  width: 0%;
+  transition: width 0.2s ease;
+}

@@ -1,0 +1,67 @@
+:host, .login-screen {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-screen {
+  background: radial-gradient(ellipse at 50% 30%, #1f1f1f, #0a0a0a 70%);
+  color: #fff;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.login-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 28px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  outline: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: transform .15s ease, background .2s ease, border-color .2s ease;
+}
+
+.login-panel:hover, .login-panel:focus {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6a85ff, #a777ff);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+.name {
+  font-size: 20px;
+}
+
+.hint {
+  opacity: 0.75;
+  font-size: 12px;
+}
+
+.footer, .timestamp {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.footer { bottom: 16px; }
+.timestamp { top: 16px; }

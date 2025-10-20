@@ -1,0 +1,13 @@
+<ng-container *ngIf="open">
+  <app-modal title="About this Mac" (close)="open = false; closed.emit()" [width]="460">
+    <div class="about">
+      <img src="/assets/icons/apple.svg" alt="Apple" width="48" height="48" />
+      <div class="info">
+        <h2>mac-portfolio</h2>
+        <p>Version {{ version }}</p>
+        <p>Powered by {{ angular }}</p>
+        <p>Author: {{ author }}</p>
+      </div>
+    </div>
+  </app-modal>
+</ng-container>

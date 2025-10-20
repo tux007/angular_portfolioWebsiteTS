@@ -1,0 +1,22 @@
+<header class="menu-bar">
+  <div class="left">
+    <div class="apple" tabindex="0">
+      <div class="menu">
+        <button (click)="aboutThisMac()">About this Mac</button>
+        <hr>
+        <button (click)="systemSettings()">System Settings…</button>
+        <hr>
+        <button (click)="sleep()">Sleep</button>
+        <button (click)="restart()">Restart…</button>
+        <button (click)="shutdown()">Shut Down…</button>
+        <hr>
+        <button (click)="lockScreen()">Lock Screen</button>
+        <button (click)="logout()">Logout {{ userName }}</button>
+      </div>
+    </div>
+    <div class="app-title">Finder</div>
+  </div>
+  <div class="right">{{ dateLabel() }}</div>
+</header>
+
+<app-about-this-mac [open]="showAbout()" (closed)="showAbout.set(false)"></app-about-this-mac>

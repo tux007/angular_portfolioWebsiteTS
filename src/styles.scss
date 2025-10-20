@@ -1,1 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global base styles */
+html, body { height: 100%; }
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Arial, sans-serif; }
+app-root, app-desktop, app-login, app-boot { display: block; height: 100%; }

@@ -1,0 +1,8 @@
+<div class="dock">
+  <div class="items">
+    <button class="item" *ngFor="let app of apps" (click)="open(app.name)">
+      <img class="icon" [src]="app.icon" [alt]="app.name" width="44" height="44" />
+      <span class="label">{{ app.name }}</span>
+    </button>
+  </div>
+</div>

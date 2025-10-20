@@ -1,0 +1,10 @@
+<app-menu-bar />
+<div class="desktop">
+  <div class="icons">
+    <button class="icon" *ngFor="let item of desktopIcons">
+      <img class="emoji" [src]="item.icon" [alt]="item.name" width="40" height="40" />
+      <span class="label">{{ item.name }}</span>
+    </button>
+  </div>
+</div>
+<app-dock />

@@ -1,0 +1,14 @@
+<div class="backdrop" (click)="close.emit()"></div>
+<div class="window" [style.width.px]="width" role="dialog" aria-modal="true">
+  <div class="titlebar">
+    <div class="traffic-lights">
+      <button class="red" (click)="close.emit()" aria-label="Close"></button>
+      <button class="yellow" aria-label="Minimize"></button>
+      <button class="green" aria-label="Zoom"></button>
+    </div>
+    <div class="title">{{ title }}</div>
+  </div>
+  <div class="content">
+    <ng-content />
+  </div>
+</div>
