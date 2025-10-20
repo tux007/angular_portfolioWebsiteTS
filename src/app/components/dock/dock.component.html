@@ -1,5 +1,5 @@
-<div class="dock" [style.--mouseX.px]="mouseX">
-  <div class="items">
+<div class="dock">
+  <div class="items" #itemsRef (mousemove)="onMove($event, itemsRef)" [style.--mouseX.px]="mouseX">
     <button class="item" *ngFor="let app of apps; let i = index" (click)="open(app.name)" [style.--i]="i">
       <img class="icon" [src]="app.icon" [alt]="app.name" width="44" height="44" />
       <span class="label">{{ app.name }}</span>

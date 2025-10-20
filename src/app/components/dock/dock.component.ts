@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -20,9 +20,10 @@ export class DockComponent {
     console.log('Open app:', app);
   }
 
-  // Magnifier logic
-  mouseX = 0;
-  @HostListener('mousemove', ['$event']) onMove(e: MouseEvent) {
-    this.mouseX = e.clientX;
+  // Magnifier logic: mouse position relative to items container
+  mouseX: number = 0;
+  onMove(e: MouseEvent, el: HTMLElement) {
+    const rect = el.getBoundingClientRect();
+    this.mouseX = e.clientX - rect.left; // relative X
   }
 }

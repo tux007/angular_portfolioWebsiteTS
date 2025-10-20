@@ -10,30 +10,46 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.25), 0 1px 0 rgba(255,255,255,0.6) inset;
 }
 
-.items { display: flex; align-items: end; gap: 10px; }
+.items {
+  display: flex; align-items: end; gap: var(--gap);
+  /* Tunables for magnifier */
+  --iconSize: 30px;
+  --padEach: 10px; /* .item padding each side */
+  --gap: 30px; /* flex gap between items */
+  --spacing: calc(var(--iconSize) + (2 * var(--padEach)) + var(--gap)); /* center-to-center */
+  --maxScale: 2.0; /* peak magnification at cursor */
+  --falloff: 480px; /* higher = slower falloff; also used as clamp max */
+}
 
 .item {
   background: transparent;
   border: 0;
   display: grid;
   place-items: center;
-  padding: 4px;
+  padding: var(--padEach);
   border-radius: 10px;
   transition: transform .09s ease;
   position: relative;
 }
-.item:hover { transform: scale(1.12); }
 
-.icon { width: 44px; height: 44px; display: block; pointer-events: none; }
+
+.icon { width: var(--iconSize); height: var(--iconSize); display: block; pointer-events: none; }
 .label { position: absolute; bottom: 56px; background: rgba(0,0,0,0.8); color: #fff; padding: 2px 6px; border-radius: 6px; font-size: 11px; opacity: 0; transform: translateY(4px); transition: .12s ease; }
 .item:hover .label { opacity: 1; transform: translateY(0); }
 
 /* Magnifier: scale based on distance to mouse X */
 .items { --mouseX: 0; }
 .item {
-  --x: calc((var(--i) + 0.5) * 60px); /* approx icon center spacing */
-  --d: calc((var(--x) - var(--mouseX)));
-  --dist: max(1, min(240, abs(var(--d))));
-  /* scale between 1 and ~1.6 depending on proximity */
-  transform: scale(calc(1.6 - (var(--dist) / 400)));
+  --x: calc((var(--i) + 0.5) * var(--spacing)); /* approximate icon center */
+  --d: calc(var(--x) - var(--mouseX));
+  /* CSS abs replacement */
+  --absd: max(var(--d), calc(-1 * var(--d)));
+  --dist: clamp(1px, var(--absd), var(--falloff));
+  /* scale curve: 1 -> maxScale, clamped */
+  transform: scale(
+    clamp(1,
+      calc(1 + (var(--maxScale) - 1) * (1 - (var(--dist) / var(--falloff)))),
+      var(--maxScale)
+    )
+  );
 }
