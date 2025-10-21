@@ -1,5 +1,9 @@
 <app-menu-bar />
 <div class="desktop">
+  <picture class="bg-image" aria-hidden="true">
+    <img src="/assets/icons/Sequoia_Sunrise.png" alt="" decoding="async" fetchpriority="high" />
+  </picture>
+  <div class="bg-overlay" aria-hidden="true"></div>
   <div class="icons">
     <button class="icon" *ngFor="let item of desktopIcons">
       <img class="emoji" [src]="item.icon" [alt]="item.name" width="40" height="40" />
