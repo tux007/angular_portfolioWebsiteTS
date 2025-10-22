@@ -23,6 +23,7 @@ export class MenuBarComponent {
   // Menu actions
   aboutThisMac() { this.showAbout.set(true); }
   systemSettings() { alert('System Settings – coming soon'); }
+  liquid() {};
   sleep() { document.body.classList.add('sleep'); }
   restart() { this.router.navigateByUrl('/boot'); }
   shutdown() { this.router.navigateByUrl('/login'); setTimeout(() => document.body.classList.remove('sleep'), 0); }
