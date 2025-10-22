@@ -5,6 +5,13 @@
   color: #fff;
 }
 
+/* Keep the static background visible during liquid mode; blend the canvas instead */
+.desktop.liquid-active .bg-image { opacity: 1; }
+.desktop.liquid-active .liquid-canvas { opacity: 0.65; mix-blend-mode: screen; transition: opacity .25s ease; }
+
+/* Canvas lives inside .desktop and sits between bg image and overlay */
+.desktop .liquid-canvas { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+
 .bg-image {
   position: absolute;
   inset: 0;
@@ -24,14 +31,19 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.12), rgba(0,0,0,0.38) 70%);
-  z-index: 1;
+  z-index: 2; /* above liquid canvas */
   pointer-events: none;
+}
+
+/* Slightly lighten the overlay while liquid is active so the effect shows through more */
+.desktop.liquid-active .bg-overlay {
+  background: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.08), rgba(0,0,0,0.24) 70%);
 }
 
 .icons {
   position: absolute; top: 40px; left: 20px;
   display: grid; grid-template-columns: repeat(3, 72px); gap: 16px;
-  z-index: 2;
+  z-index: 3; /* above overlay */
 }
 
 .icon { width: 72px; height: 72px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); border-radius: 12px; display: grid; place-items: center; color: #fff; backdrop-filter: blur(4px); }

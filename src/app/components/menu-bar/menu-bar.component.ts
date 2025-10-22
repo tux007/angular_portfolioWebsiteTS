@@ -1,6 +1,7 @@
 import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SessionService } from '../../services/session.service';
+import { LiquidEffectService } from '../../services/liquid-effect.service';
 import { Router } from '@angular/router';
 import { AboutThisMacComponent } from '../about/about-this-mac.component';
 
@@ -16,14 +17,14 @@ export class MenuBarComponent {
   timer = setInterval(() => this.now.set(new Date()), 1000);
   showAbout = signal(false);
 
-  constructor(private session: SessionService, private router: Router) {}
+  constructor(private session: SessionService, private router: Router, private liquidSvc: LiquidEffectService) {}
 
   get userName() { return this.session.user() ?? 'Guest'; }
 
   // Menu actions
   aboutThisMac() { this.showAbout.set(true); }
   systemSettings() { alert('System Settings – coming soon'); }
-  liquid() {};
+  async liquid() { await this.liquidSvc.toggle(); };
   sleep() { document.body.classList.add('sleep'); }
   restart() { this.router.navigateByUrl('/boot'); }
   shutdown() { this.router.navigateByUrl('/login'); setTimeout(() => document.body.classList.remove('sleep'), 0); }
