@@ -1,0 +1,53 @@
+.finder-window {
+  position: absolute;
+  width: 760px; height: 480px;
+  background: rgba(255,255,255,0.84);
+  backdrop-filter: saturate(180%) blur(24px);
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25), 0 1px 0 rgba(255,255,255,0.6) inset;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.titlebar {
+  height: 32px;
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  align-items: center;
+  padding: 0 12px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(245,245,247,0.9));
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  user-select: none;
+  cursor: default;
+}
+
+.traffic-lights { display: flex; align-items: center; gap: 8px; }
+.traffic { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.15); }
+.traffic.close { background: #ff5f56; }
+.traffic.minimize { background: #ffbd2e; }
+.traffic.zoom { background: #27c93f; }
+
+.titlebar .title { font-weight: 600; color: #111; align-self: center; }
+
+.toolbar {
+  height: 44px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 12px; gap: 12px;
+  background: rgba(255,255,255,0.6);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.segmented { display: inline-flex; background: rgba(0,0,0,0.06); padding: 2px; border-radius: 8px; }
+.segmented button { border: 0; background: transparent; padding: 6px 10px; border-radius: 6px; font-size: 12px; }
+.segmented button.active { background: #fff; box-shadow: 0 1px 0 rgba(0,0,0,0.06); }
+.search input { border: 1px solid rgba(0,0,0,0.12); border-radius: 8px; padding: 6px 10px; }
+
+.content { display: grid; grid-template-columns: 200px 1fr; height: calc(100% - 32px - 44px); }
+.sidebar { background: rgba(0,0,0,0.04); border-right: 1px solid rgba(0,0,0,0.06); padding: 10px; }
+.sidebar .section { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; opacity: .6; margin: 4px 0 8px; }
+.sidebar .item { padding: 6px 8px; border-radius: 6px; cursor: default; }
+.sidebar .item.active, .sidebar .item:hover { background: rgba(0,0,0,0.06); }
+
+.main { padding: 12px; position: relative; }
+.placeholder { position: absolute; inset: 0; display: grid; place-items: center; color: rgba(0,0,0,0.5); font-size: 14px; }

@@ -1,0 +1,32 @@
+<div class="finder-window" *ngIf="open" role="dialog" aria-label="Finder window" [style.left.px]="left" [style.top.px]="top">
+  <div class="titlebar" (mousedown)="onDragStart($event)">
+    <div class="traffic-lights">
+      <button class="traffic close" aria-label="Close" (click)="onClose()"></button>
+      <button class="traffic minimize" aria-label="Minimize" disabled></button>
+      <button class="traffic zoom" aria-label="Zoom" disabled></button>
+    </div>
+    <div class="title">Finder</div>
+  </div>
+  <div class="toolbar">
+    <div class="segmented">
+      <button class="active">Icons</button>
+      <button>List</button>
+      <button>Columns</button>
+    </div>
+    <div class="search">
+      <input placeholder="Search" disabled />
+    </div>
+  </div>
+  <div class="content">
+    <div class="sidebar">
+      <div class="section">Favorites</div>
+      <div class="item active">Recents</div>
+      <div class="item">Desktop</div>
+      <div class="item">Documents</div>
+      <div class="item">Downloads</div>
+    </div>
+    <div class="main">
+      <div class="placeholder">Files coming soon…</div>
+    </div>
+  </div>
+</div>

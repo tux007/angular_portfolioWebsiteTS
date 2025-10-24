@@ -4,11 +4,12 @@
     <img src="/assets/icons/Sequoia_Sunrise.png" alt="" decoding="async" fetchpriority="high" />
   </picture>
   <div class="bg-overlay" aria-hidden="true"></div>
+  <app-finder-window [open]="isFinderOpen" (closed)="isFinderOpen=false"></app-finder-window>
   <div class="icons">
-    <button class="icon" *ngFor="let item of desktopIcons">
+    <button class="icon" *ngFor="let item of desktopIcons" (dblclick)="onDesktopOpen(item.name)" title="Double-click to open">
       <img class="emoji" [src]="item.icon" [alt]="item.name" width="40" height="40" />
       <span class="label">{{ item.name }}</span>
     </button>
   </div>
 </div>
-<app-dock />
+<app-dock [runningApps]="runningApps" (appOpen)="onDockOpen($event)" />
